@@ -13,6 +13,7 @@
     "chai": "^4.3.6",
     "cross-env": "^7.0.2",
     "dotenv": "^10.0.0",
+    "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.3",
     "fs": "^0.0.1-security",
     "fs-extra": "^10.0.0",
@@ -26,8 +27,7 @@
     "solidity-coverage": "^0.7.18",
     "ts-node": "^10.4.0",
     "typechain": "^7.0.0",
-    "typescript": "^4.5.5",
-    "ethereum-waffle": "^3.4.0"
+    "typescript": "^4.5.5"
   },
   "scripts": {
     "lint": "solhint 'contracts/*.sol'",
