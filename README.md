@@ -1,3 +1,5 @@
+The front end branch is a work in progress
+
 # DAO Template
 
 <div id="top"></div>
