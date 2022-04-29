@@ -36,7 +36,7 @@ export async function queueAndExecute() {
     descriptionHash
   )
   await executeTx.wait(1)
-  console.log(await box.retrieve().toString())
+  console.log(`Box value: ${await box.retrieve()}`)
 }
 
 queueAndExecute()

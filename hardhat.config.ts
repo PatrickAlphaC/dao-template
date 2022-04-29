@@ -6,7 +6,6 @@ import "hardhat-gas-reporter"
 import "dotenv/config"
 import "solidity-coverage"
 import "hardhat-deploy"
-import "solidity-coverage"
 import { HardhatUserConfig } from "hardhat/config"
 
 const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || ""
@@ -30,7 +29,15 @@ const config: HardhatUserConfig = {
       chainId: 4,
     },
   },
-  solidity: "0.8.9",
+  solidity: {
+    version: "0.8.9",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    },
+  },
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,
   },
