@@ -19,9 +19,11 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       chainId: 31337,
+      allowUnlimitedContractSize: true
     },
     localhost: {
       chainId: 31337,
+      allowUnlimitedContractSize: true
     },
     rinkeby: {
       url: RINKEBY_RPC_URL,
