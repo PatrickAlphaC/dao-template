@@ -3,12 +3,11 @@ import { network, ethers } from "hardhat"
 import { proposalsFile, developmentChains, VOTING_PERIOD } from "../helper-hardhat-config"
 import { moveBlocks } from "../utils/move-blocks"
 
-const index = 0
 
-async function main(proposalIndex: number) {
+async function main() {
   const proposals = JSON.parse(fs.readFileSync(proposalsFile, "utf8"))
-  // You could swap this out for the ID you want to use too
-  const proposalId = proposals[network.config.chainId!][proposalIndex]
+  // Get the last proposal for the network. You could also change it for your index
+  const proposalId = proposals[network.config.chainId!].at(-1);
   // 0 = Against, 1 = For, 2 = Abstain for this example
   const voteWay = 1
   const reason = "I lika do da cha cha"
@@ -29,7 +28,7 @@ export async function vote(proposalId: string, voteWay: number, reason: string) 
   }
 }
 
-main(index)
+main()
   .then(() => process.exit(0))
   .catch((error) => {
     console.error(error)
