@@ -1,5 +1,7 @@
 # DAO Template
 
+*This has been updated to work with Goerli over Rinkeby*
+
 <div id="top"></div>
 
 - [DAO Template](#dao-template)
