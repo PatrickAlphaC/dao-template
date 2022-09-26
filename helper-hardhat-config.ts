@@ -10,9 +10,7 @@ export interface networkConfigInfo {
 export const networkConfig: networkConfigInfo = {
   localhost: {},
   hardhat: {},
-  // Price Feed Address, values can be obtained at https://docs.chain.link/docs/reference-contracts
-  // Default one is ETH/USD contract on Kovan
-  kovan: {
+  goerli: {
     blockConfirmations: 6,
   },
 }
