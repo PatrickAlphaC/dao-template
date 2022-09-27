@@ -19,22 +19,24 @@ const deployGovernorContract: DeployFunction = async function (hre: HardhatRunti
 
   log("----------------------------------------------------")
   log("Deploying GovernorContract and waiting for confirmations...")
+
+  const args = [
+    governanceToken.address,
+    timeLock.address,
+    QUORUM_PERCENTAGE,
+    VOTING_PERIOD,
+    VOTING_DELAY,
+  ]
   const governorContract = await deploy("GovernorContract", {
     from: deployer,
-    args: [
-      governanceToken.address,
-      timeLock.address,
-      QUORUM_PERCENTAGE,
-      VOTING_PERIOD,
-      VOTING_DELAY,
-    ],
+    args,
     log: true,
     // we need to wait if on a live network so we can verify properly
     waitConfirmations: networkConfig[network.name].blockConfirmations || 1,
   })
   log(`GovernorContract at ${governorContract.address}`)
   if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
-    await verify(governorContract.address, [])
+    await verify(governorContract.address, args)
   }
 }
 

@@ -10,16 +10,17 @@ const deployTimeLock: DeployFunction = async function (hre: HardhatRuntimeEnviro
   const { deployer } = await getNamedAccounts()
   log("----------------------------------------------------")
   log("Deploying TimeLock and waiting for confirmations...")
+  const args = [MIN_DELAY, [], []]
   const timeLock = await deploy("TimeLock", {
     from: deployer,
-    args: [MIN_DELAY, [], []],
+    args,
     log: true,
     // we need to wait if on a live network so we can verify properly
     waitConfirmations: networkConfig[network.name].blockConfirmations || 1,
   })
   log(`TimeLock at ${timeLock.address}`)
   if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
-    await verify(timeLock.address, [])
+    await verify(timeLock.address, args, "contracts/governance_standard/TimeLock.sol:TimeLock")
   }
 }
 
