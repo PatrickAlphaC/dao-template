@@ -35,5 +35,9 @@
     "format": "yarn prettier --write .",
     "typechain": "yarn hardhat typechain",
     "ci:clean": "rm -rf ./artifacts ./cache .;types"
+  },
+  "packageManager": "yarn@1.22.19",
+  "engines": {
+    "node": ">=16.17.0"
   }
 }
