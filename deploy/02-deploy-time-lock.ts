@@ -13,7 +13,7 @@ const deployTimeLock: DeployFunction = async function (hre: HardhatRuntimeEnviro
   const args = [MIN_DELAY, [], []]
   const timeLock = await deploy("TimeLock", {
     from: deployer,
-    args,
+    args: args,
     log: true,
     // we need to wait if on a live network so we can verify properly
     waitConfirmations: networkConfig[network.name].blockConfirmations || 1,
