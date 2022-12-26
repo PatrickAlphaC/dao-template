@@ -12,7 +12,8 @@ const deployTimeLock: DeployFunction = async function (hre: HardhatRuntimeEnviro
   log("Deploying TimeLock and waiting for confirmations...")
   const timeLock = await deploy("TimeLock", {
     from: deployer,
-    args: [MIN_DELAY, [], []],
+    //add the 4th argument of admin Adress for the error: while deploying this file
+    args: [MIN_DELAY, [], [], ADDRESS_ZERO],
     log: true,
     // we need to wait if on a live network so we can verify properly
     waitConfirmations: networkConfig[network.name].blockConfirmations || 1,
