@@ -36,7 +36,8 @@ export async function propose(args: any[], functionToCall: string, proposalDescr
   // save the proposalId
   storeProposalId(proposalId);
 
-  // The state of the proposal. 1 is not passed. 0 is passed.
+  // the Proposal State is an enum data type, defined in the IGovernor contract.
+  // 0:Pending, 1:Active, 2:Canceled, 3:Defeated, 4:Succeeded, 5:Queued, 6:Expired, 7:Executed
   console.log(`Current Proposal State: ${proposalState}`)
   // What block # the proposal was snapshot
   console.log(`Current Proposal Snapshot: ${proposalSnapShot}`)
