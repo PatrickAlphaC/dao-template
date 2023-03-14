@@ -1,6 +1,6 @@
 # DAO Template
 
-*This has been updated to work with Goerli over Rinkeby*
+*This has been updated to work with Sepolia over Goerli*
 
 <div id="top"></div>
 
