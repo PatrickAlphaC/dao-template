@@ -1,15 +1,15 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types"
 import { DeployFunction } from "hardhat-deploy/types"
-import verify from "../helper-functions"
-import { networkConfig, developmentChains, ADDRESS_ZERO } from "../helper-hardhat-config"
+ 
+import {   ADDRESS_ZERO } from "../helper-hardhat-config"
 import { ethers } from "hardhat"
 
 const setupContracts: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   // @ts-ignore
-  const { getNamedAccounts, deployments, network } = hre
+  const { getNamedAccounts, deployments  } = hre
   const { log } = deployments
   const { deployer } = await getNamedAccounts()
-  const governanceToken = await ethers.getContract("GovernanceToken", deployer)
+   
   const timeLock = await ethers.getContract("TimeLock", deployer)
   const governor = await ethers.getContract("GovernorContract", deployer)
 
