@@ -11,7 +11,7 @@ import { HardhatUserConfig } from "hardhat/config"
 const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || ""
 const SEPOLIA_RPC_URL =
   process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/YOUR-API-KEY"
-const PRIVATE_KEY = process.env.PRIVATE_KEY || "privatKey"
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "privateKey"
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || ""
 
 const config: HardhatUserConfig = {
