@@ -12,9 +12,6 @@ jobs:
     permissions:
       contents: read
       security-events: write
-    env:
-      SEPOLIA_RPC_URL: ${{ secrets.SEPOLIA_RPC_URL }}
-      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
