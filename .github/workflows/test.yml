@@ -1,0 +1,20 @@
+name: hardhat-unit-test
+on: [push]
+
+jobs:
+  unit-test:
+   runs-on: ubuntu-latest
+   name: Solidity unit test continuous integration
+   steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Environment Setup
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.15.0
+
+    - name: Unit test
+      uses: ambersun1234/hardhat-test-action@v1
+      with:
+        network: hardhat
