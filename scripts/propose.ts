@@ -14,10 +14,10 @@ export async function propose(args: any[], functionToCall: string, proposalDescr
   const governor = await ethers.getContract("GovernorContract")
   const box = await ethers.getContract("Box")
   const encodedFunctionCall = box.interface.encodeFunctionData(functionToCall, args)
-  console.log(`Proposing ${functionToCall} on ${box.address} with ${args}`)
+  console.log(`Proposing ${functionToCall} on ${box.target} with ${args}`)
   console.log(`Proposal Description:\n  ${proposalDescription}`)
-  const proposeTx = await governor.propose(
-    [box.address],
+  const proposeTx = await governor.getFunction("propose")(
+    [box.target],
     [0],
     [encodedFunctionCall],
     proposalDescription
@@ -30,9 +30,9 @@ export async function propose(args: any[], functionToCall: string, proposalDescr
   const proposalId = proposeReceipt.events[0].args.proposalId
   console.log(`Proposed with proposal ID:\n  ${proposalId}`)
 
-  const proposalState = await governor.state(proposalId)
-  const proposalSnapShot = await governor.proposalSnapshot(proposalId)
-  const proposalDeadline = await governor.proposalDeadline(proposalId)
+  const proposalState = await governor.getFunction("state")(proposalId)
+  const proposalSnapShot = await governor.getFunction("proposalSnapshot")(proposalId)
+  const proposalDeadline = await governor.getFunction("proposalDeadline")(proposalId)
   // save the proposalId
   storeProposalId(proposalId);
 
