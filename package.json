@@ -29,5 +29,8 @@
     "format": "yarn prettier --write .",
     "typechain": "yarn hardhat typechain",
     "ci:clean": "rm -rf ./artifacts ./cache .;types"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-verify": "^2.0.3"
   }
 }
