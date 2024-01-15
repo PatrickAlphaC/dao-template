@@ -1,3 +1,5 @@
+_As of Jan. 15, 2024, this repo is archived. The underlying codebase for how to make a DAO has greatly changed due to the changing nature of many of the packages this codebase used, and I don't have time to continue to maintain it._
+
 # DAO Template
 
 *This has been updated to work with Sepolia over Goerli*
